@@ -1,3 +1,6 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/caw4x9vtvycp13v9/branch/master?svg=true)](https://ci.appveyor.com/project/yemrekeskin/crawlernet/branch/master)
+
+
 ## CrawlerNet
 
  [CrawlerNet](http://app.yemrekeskin.com/crawlernet) is a simple web crawler build in C# with dotnet framework.You can easily use for extracting the links you need from any website
