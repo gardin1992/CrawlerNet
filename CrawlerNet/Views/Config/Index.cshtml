@@ -1,0 +1,351 @@
+﻿@using CrawlerNet.Utilities
+@model CrawlerNet.ViewModels.ConfigViewModel
+
+@{
+    ViewBag.Title = "Configuration";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    @Html.Alert(AlertType.Danger, Model.ErrorMsg)
+    @Html.Alert(AlertType.Success, Model.SuccessMsg)
+
+@using (Html.BeginForm("Index", "Config", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary()
+    
+        <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+
+            <ul id="myTab" class="nav nav-tabs" role="tablist">
+
+                <li role="presentation" class="active"><a href="#general" id="general-tab" role="tab" data-toggle="tab" aria-controls="general" aria-expanded="true">General</a></li>                
+                <li role="presentation"><a href="#home" role="tab" id="home-tab" data-toggle="tab" aria-controls="home">Politeness</a></li>      
+                <li role="presentation"><a href="#about" role="tab" id="about-tab" data-toggle="tab" aria-controls="about"> Max-Min Settings </a></li>      
+                <li role="presentation"><a href="#contact" role="tab" id="contact-tab" data-toggle="tab" aria-controls="contact">String Settings</a></li>   
+                                  
+            </ul>
+            
+            <div id="myTabContent" class="tab-content">
+
+                <div role="tabpanel" class="tab-pane fade in active well" id="general" aria-labelledby="general-tab">
+
+                    <div class="row">
+
+                        <div class="col-lg-4">
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.httpServicePointConnectionLimit, new { @class = "control-label" })
+                                @Html.TextBoxFor(m => m.httpServicePointConnectionLimit, new { @class = "form-control" })
+
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.httpRequestTimeoutInSeconds, new { @class = "control-label" })
+                                @Html.TextBoxFor(m => m.httpRequestTimeoutInSeconds, new { @class = "form-control" })
+
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.httpRequestMaxAutoRedirects, new { @class = "control-label" })
+                                @Html.TextBoxFor(m => m.httpRequestMaxAutoRedirects, new { @class = "form-control" })
+
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="checkbox">
+
+                                    @Html.CheckBoxFor(m => m.isHttpRequestAutoRedirectsEnabled)
+                                    IsHttpRequestAutoRedirectsEnabled
+
+                                </div>
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="checkbox">
+
+                                    @Html.CheckBoxFor(m => m.isHttpRequestAutomaticDecompressionEnabled)
+                                    isHttpRequestAutomaticDecompressionEnabled
+
+                                </div>
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>
+
+
+
+                        </div>
+                        
+                        <div class="col-lg-4">
+
+                            <div class="form-group">
+                                <div class="checkbox">
+
+                                    @Html.CheckBoxFor(m => m.isSendingCookiesEnabled)
+                                    isSendingCookiesEnabled
+
+                                </div>
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="checkbox">
+
+                                    @Html.CheckBoxFor(m => m.isForcedLinkParsingEnabled)
+                                    isForcedLinkParsingEnabled
+
+                                </div>
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.crawlTimeoutSeconds, new { @class = "control-label" })
+                                @Html.TextBoxFor(m => m.crawlTimeoutSeconds, new { @class = "form-control" })
+
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>
+                           
+                            <div class="form-group">
+                                <div class="checkbox">
+
+                                    @Html.CheckBoxFor(m => m.isUriRecrawlingEnabled)
+                                    isUriRecrawlingEnabled
+
+                                </div>
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="checkbox">
+
+                                    @Html.CheckBoxFor(m => m.isExternalPageCrawlingEnabled)
+                                    isExternalPageCrawlingEnabled
+
+                                </div>
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="checkbox">
+
+                                    @Html.CheckBoxFor(m => m.isExternalPageLinksCrawlingEnabled)
+                                    isExternalPageLinksCrawlingEnabled
+
+                                </div>
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>
+
+                        </div>
+                      
+                    </div>
+
+                </div>
+
+                <div role="tabpanel" class="tab-pane fade well" id="home" aria-labelledby="home-tab">
+
+                    <div class="row">
+
+                        <div class="col-lg-4">
+                            
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.maxRobotsDotTextCrawlDelayInSeconds, new { @class = "control-label" })
+                                @Html.TextBoxFor(m => m.maxRobotsDotTextCrawlDelayInSeconds, new { @class = "form-control" })
+
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.minCrawlDelayPerDomainMilliSeconds, new { @class = "control-label" })
+                                @Html.TextBoxFor(m => m.minCrawlDelayPerDomainMilliSeconds, new { @class = "form-control" })
+
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>
+             
+
+                            <div class="form-group">
+                                <div class="checkbox">
+
+                                    @Html.CheckBoxFor(m => m.isRespectAnchorRelNoFollowEnabled)
+                                    IsRespectAnchorRelNoFollowEnabled
+
+                                </div>
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>
+
+
+                        </div>
+                        <div class="col-lg-4">
+
+                            <div class="form-group">
+                                <div class="checkbox">
+
+                                    @Html.CheckBoxFor(m => m.isRespectRobotsDotTextEnabled)
+                                    IsRespectRobotsDotTextEnabled
+
+                                </div>
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="checkbox">
+
+                                    @Html.CheckBoxFor(m => m.isRespectMetaRobotsNoFollowEnabled)
+                                    IsRespectMetaRobotsNoFollowEnabled
+
+                                </div>
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="checkbox">
+
+                                    @Html.CheckBoxFor(m => m.isIgnoreRobotsDotTextIfRootDisallowedEnabled)
+                                    IsIgnoreRobotsDotTextIfRootDisallowedEnabled
+
+                                </div>
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>
+
+                           
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div role="tabpanel" class="tab-pane fade well" id="about" aria-labelledby="about-tab">
+
+                    <div class="row">
+
+                        <div class="col-lg-4">
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.maxConcurrentThreads, new { @class = "control-label" })
+                                @Html.TextBoxFor(m => m.maxConcurrentThreads, new { @class = "form-control" })
+
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.maxPagesToCrawl, new { @class = "control-label" })
+                                @Html.TextBoxFor(m => m.maxPagesToCrawl, new { @class = "form-control" })
+
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.maxPagesToCrawlPerDomain, new { @class = "control-label" })
+                                @Html.TextBoxFor(m => m.maxPagesToCrawlPerDomain, new { @class = "form-control" })
+
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.maxPageSizeInBytes, new { @class = "control-label" })
+                                @Html.TextBoxFor(m => m.maxPageSizeInBytes, new { @class = "form-control" })
+
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.maxRetryCount, new { @class = "control-label" })
+                                @Html.TextBoxFor(m => m.maxRetryCount, new { @class = "form-control" })
+
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>
+                           
+
+                        </div>
+                        <div class="col-lg-4">
+
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.minRetryDelayInMilliseconds, new { @class = "control-label" })
+                                @Html.TextBoxFor(m => m.minRetryDelayInMilliseconds, new { @class = "form-control" })
+
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.minAvailableMemoryRequiredInMb, new { @class = "control-label" })
+                                @Html.TextBoxFor(m => m.minAvailableMemoryRequiredInMb, new { @class = "form-control" })
+
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.maxMemoryUsageInMb, new { @class = "control-label" })
+                                @Html.TextBoxFor(m => m.maxMemoryUsageInMb, new { @class = "form-control" })
+
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.maxMemoryUsageCacheTimeInSeconds, new { @class = "control-label" })
+                                @Html.TextBoxFor(m => m.maxMemoryUsageCacheTimeInSeconds, new { @class = "form-control" })
+
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.maxCrawlDepth, new { @class = "control-label" })
+                                @Html.TextBoxFor(m => m.maxCrawlDepth, new { @class = "form-control" })
+
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div role="tabpanel" class="tab-pane fade well" id="contact" aria-labelledby="contact-tab">
+
+                    <div class="row">
+
+                        <div class="col-lg-6">
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.userAgentString, new { @class = "control-label" })
+                                @Html.TextBoxFor(m => m.userAgentString, new { @class = "form-control" })
+
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.downloadableContentTypes, new { @class = "control-label" })
+                                @Html.TextBoxFor(m => m.downloadableContentTypes, new { @class = "form-control" })
+
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.robotsDotTextUserAgentString, new { @class = "control-label" })
+                                @Html.TextBoxFor(m => m.robotsDotTextUserAgentString, new { @class = "form-control" })
+
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>
+                           
+                        </div>
+                        <div class="col-lg-3">
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Update" class="btn" />
+    </div>
+
+}
+

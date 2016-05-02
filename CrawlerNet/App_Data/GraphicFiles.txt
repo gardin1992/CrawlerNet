@@ -1,0 +1,1 @@
+bmp,dds,gif,jpg,png,psd,pspimage,tga,thm,tif,tiff,yuv,3dm,3ds,max,obj,ai,eps,ps,svg

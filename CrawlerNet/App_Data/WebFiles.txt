@@ -1,0 +1,1 @@
+html,htm,xml,xhtml,rss,xht,mht,mhtml,maff,asp,aspx,bml,cfm,cgi,ihtml,jsp,las,lasso,lassoapp,pl,php,phtml,rna,r,rnx,shtml,stm

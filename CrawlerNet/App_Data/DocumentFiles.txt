@@ -1,0 +1,1 @@
+doc,docx,log,msg,odt,ibooks,pages,rtf,tex,txt,wpd,wps,xlr,xls,xlsx,ppt,pptx,indd,pct,pdf

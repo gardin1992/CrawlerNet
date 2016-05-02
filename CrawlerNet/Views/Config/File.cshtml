@@ -1,0 +1,177 @@
+﻿@using CrawlerNet.Utilities
+@model CrawlerNet.ViewModels.FileTypesViewModel
+
+@{
+    ViewBag.Title = "Configuration";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@Html.Alert(AlertType.Danger, Model.ErrorMsg)
+@Html.Alert(AlertType.Success, Model.SuccessMsg)
+
+@using (Html.BeginForm("File", "Config", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary()
+    
+        <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+
+            <ul id="myTab" class="nav nav-tabs" role="tablist">
+
+                <li role="presentation" class="active"><a href="#general" id="general-tab" role="tab" data-toggle="tab" aria-controls="general" aria-expanded="true">AudioFiles</a></li>                
+                <li role="presentation"><a href="#home" role="tab" id="home-tab" data-toggle="tab" aria-controls="home">DataFiles</a></li>      
+                <li role="presentation"><a href="#about" role="tab" id="about-tab" data-toggle="tab" aria-controls="about"> DocumentFiles </a></li>      
+                <li role="presentation"><a href="#contact" role="tab" id="contact-tab" data-toggle="tab" aria-controls="contact">ExecutablesFiles</a></li> 
+                  
+                <li role="presentation"><a href="#social" role="tab" id="social-tab" data-toggle="tab" aria-controls="social">GraphicFiles</a></li>    
+                <li role="presentation"><a href="#social2" role="tab" id="social2-tab" data-toggle="tab" aria-controls="social2">VideoFiles</a></li>  
+                <li role="presentation"><a href="#social3" role="tab" id="social3-tab" data-toggle="tab" aria-controls="social3">WebFiles</a></li>                
+            </ul>
+            
+            <div id="myTabContent" class="tab-content">
+
+                <div role="tabpanel" class="tab-pane fade in active well" id="general" aria-labelledby="general-tab">
+
+                    <div class="row">
+
+                        <div class="col-lg-8">
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.AudioFiles, new { @class = "control-label" })
+                                @Html.TextAreaFor(m => m.AudioFiles, new { @class = "form-control", rows = "6" })
+
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>
+
+                        </div>
+                                              
+                    </div>
+
+                </div>
+
+                <div role="tabpanel" class="tab-pane fade well" id="home" aria-labelledby="home-tab">
+
+                    <div class="row">
+
+                        <div class="col-lg-8">
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.DataFiles, new { @class = "control-label" })
+                                @Html.TextAreaFor(m => m.DataFiles, new { @class = "form-control", rows = "6" })
+
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div role="tabpanel" class="tab-pane fade well" id="about" aria-labelledby="about-tab">
+
+                    <div class="row">
+
+                        <div class="col-lg-8">
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.DocumentFiles, new { @class = "control-label" })
+                                @Html.TextAreaFor(m => m.DocumentFiles, new { @class = "form-control", rows = "6" })
+
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div role="tabpanel" class="tab-pane fade well" id="contact" aria-labelledby="contact-tab">
+
+                    <div class="row">
+
+                        <div class="col-lg-8">
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.ExecutablesFiles, new { @class = "control-label" })
+                                @Html.TextAreaFor(m => m.ExecutablesFiles, new { @class = "form-control", rows = "6" })
+
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div role="tabpanel" class="tab-pane fade well" id="social" aria-labelledby="social-tab">
+
+                    <div class="row">
+
+                        <div class="col-lg-8">
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.GraphicFiles, new { @class = "control-label" })
+                                @Html.TextAreaFor(m => m.GraphicFiles, new { @class = "form-control", rows = "6" })
+
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>
+
+                        </div>
+                       
+
+                    </div>
+
+                </div>
+
+                <div role="tabpanel" class="tab-pane fade well" id="social2" aria-labelledby="social2-tab">
+
+                    <div class="row">
+
+                        <div class="col-lg-8">
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.VideoFiles, new { @class = "control-label" })
+                                @Html.TextAreaFor(m => m.VideoFiles, new { @class = "form-control", rows = "6" })
+
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div role="tabpanel" class="tab-pane fade well" id="social3" aria-labelledby="social3-tab">
+
+                    <div class="row">
+
+                        <div class="col-lg-8">
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.WebFiles, new { @class = "control-label" })
+                                @Html.TextAreaFor(m => m.WebFiles, new { @class = "form-control", rows = "6", id = "ee" })
+
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>                           
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Update" class="btn" />
+    </div>
+
+}
+
+
