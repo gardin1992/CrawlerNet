@@ -11,6 +11,11 @@
  - Filtering to Audio,Data,Document,Video,Web and executable files
  - Configuration Setting
  - Export via JSON,TEXT,EXCEL file
+ 
+## Dependencies
+
+ -  [Abot](https://www.nuget.org/packages/Abot/)
+ -  [AutoMapper](http://automapper.org/)
 
 ## License
 
