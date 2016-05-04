@@ -1,4 +1,6 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/caw4x9vtvycp13v9/branch/master?svg=true)](https://ci.appveyor.com/project/yemrekeskin/crawlernet/branch/master)
+[![Build status](https://ci.appveyor.com/api/projects/status/caw4x9vtvycp13v9/branch/master?svg=true)]
+ (https://ci.appveyor.com/project/yemrekeskin/crawlernet/branch/master) 
+ [![Join the chat at https://gitter.im/MvcGeekSamples](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/MvcGeekSamples?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
 ## CrawlerNet
